@@ -1,0 +1,94 @@
+:root {
+  --bg: #f7f6f3;
+  --panel: #ffffff;
+  --text: #1d1d1b;
+  --muted: #6b6a66;
+  --border: #e3e1db;
+  --accent: #1f6f5c;
+  --accent-text: #ffffff;
+  --guest: #ffffff;
+  --host: #e4f1ec;
+  --alert: #b4462f;
+  --alert-bg: #fbeee9;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161615;
+    --panel: #1f1f1d;
+    --text: #ecebe7;
+    --muted: #a09e98;
+    --border: #34332f;
+    --accent: #5fbfa4;
+    --accent-text: #0e1f1a;
+    --guest: #262624;
+    --host: #1c3029;
+    --alert: #f08a6f;
+    --alert-bg: #3a221b;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+a { color: inherit; }
+h1 { font-size: 1.25rem; margin: 0 0 1rem; }
+h2 { font-size: 1.05rem; margin: 0; }
+code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; }
+pre { white-space: pre-wrap; background: var(--bg); padding: 0.75rem; border-radius: 6px; }
+
+.top { display: flex; align-items: center; gap: 1.5rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); background: var(--panel); }
+.brand { font-weight: 700; text-decoration: none; color: var(--accent); }
+.top nav { display: flex; gap: 1rem; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--text); }
+
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.empty { padding: 1rem; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
+.badge { font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 99px; background: var(--host); color: var(--accent); white-space: nowrap; }
+.badge.alert { background: var(--alert-bg); color: var(--alert); }
+.badge.rejected { background: var(--bg); color: var(--muted); }
+.error { background: var(--alert-bg); color: var(--alert); padding: 0.6rem 0.8rem; border-radius: 8px; }
+
+label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.6rem; }
+input, select, textarea { display: block; width: 100%; margin-top: 0.25rem; padding: 0.5rem; font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 6px; }
+textarea { resize: vertical; }
+button { font: inherit; padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-text); cursor: pointer; }
+button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.inbox { display: grid; grid-template-columns: 320px 1fr; min-height: calc(100vh - 50px); }
+.inbox aside { border-right: 1px solid var(--border); padding: 1rem; overflow-y: auto; }
+.simulate summary { cursor: pointer; font-weight: 600; }
+.simulate form { margin-top: 0.75rem; }
+.convs { list-style: none; margin: 0; padding: 0; }
+.convs a { display: grid; gap: 0.1rem; padding: 0.6rem 0.75rem; border-radius: 8px; text-decoration: none; }
+.convs a:hover { background: var(--panel); }
+.convs a[aria-current] { background: var(--panel); box-shadow: inset 3px 0 0 var(--accent); }
+.preview { color: var(--muted); font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.thread { padding: 1.25rem; max-width: 760px; width: 100%; }
+.messages { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.6rem; }
+.messages li { max-width: 80%; padding: 0.6rem 0.85rem; border-radius: 12px; border: 1px solid var(--border); }
+.messages li p { margin: 0 0 0.2rem; white-space: pre-wrap; }
+.messages .guest { background: var(--guest); justify-self: start; }
+.messages .host { background: var(--host); justify-self: end; }
+.draft { display: grid; gap: 0.5rem; border-color: var(--accent); }
+.draft p { margin: 0; }
+.draft.escalated { border-color: var(--alert); }
+.draft.escalated strong { color: var(--alert); }
+.draft .row:last-child { justify-content: flex-start; }
+.history ul { padding-left: 1rem; }
+.history li { margin: 0.3rem 0; }
+
+.page { padding: 1.25rem; max-width: 820px; }
+
+@media (max-width: 760px) {
+  .inbox { grid-template-columns: 1fr; }
+  .inbox aside { border-right: 0; border-bottom: 1px solid var(--border); }
+  .messages li { max-width: 95%; }
+}

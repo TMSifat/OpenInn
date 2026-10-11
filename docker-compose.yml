@@ -1,0 +1,15 @@
+services:
+  openinn:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file: .env
+    volumes:
+      - ./properties:/app/properties   # your property files, edit them on the host
+      - openinn-data:/app/data         # SQLite database
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # lets the container reach Ollama on your machine
+
+volumes:
+  openinn-data:

@@ -1,0 +1,56 @@
+{
+  "name": "openinn",
+  "version": "1.0.0",
+  "description": "Free, open-source, self-hosted AI guest assistant for short-term rental hosts",
+  "keywords": [
+    "airbnb",
+    "vacation-rental",
+    "short-term-rental",
+    "ai",
+    "guest-messaging",
+    "self-hosted",
+    "hospitable",
+    "hostaway",
+    "guesty",
+    "ollama"
+  ],
+  "homepage": "https://github.com/TMSifat/OpenInn#readme",
+  "bugs": {
+    "url": "https://github.com/TMSifat/OpenInn/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TMSifat/OpenInn.git"
+  },
+  "license": "MIT",
+  "author": "Tanvir Mustabi Sifat",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.78",
+    "@ai-sdk/google": "^4.0.93",
+    "@ai-sdk/openai": "^4.0.91",
+    "ai": "^7.0.137",
+    "next": "^16.4.0",
+    "nodemailer": "^10.1.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

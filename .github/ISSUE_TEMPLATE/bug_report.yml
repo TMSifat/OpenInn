@@ -1,0 +1,53 @@
+name: Bug report
+description: Something isn't working as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Never paste API keys, tokens or guest personal data.** For security issues, see SECURITY.md instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Set mode: autopilot in properties/x.md
+        2. Simulate a guest message "..."
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How do you run OpenInn?
+      options: [Docker Compose, Node.js (npm start), Development (npm run dev)]
+    validations:
+      required: true
+  - type: dropdown
+    id: pms
+    attributes:
+      label: PMS connector
+      options: [Demo only, Hospitable, Hostaway, Guesty]
+  - type: input
+    id: model
+    attributes:
+      label: AI_MODEL
+      placeholder: anthropic:claude-sonnet-5-5
+  - type: input
+    id: version
+    attributes:
+      label: OpenInn version or commit
+      placeholder: v1.0.0
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Output of `docker compose logs openinn` (remove any personal data)
+      render: shell

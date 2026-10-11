@@ -1,0 +1,37 @@
+name: Connector report
+description: Tell us how a PMS connector worked with your real account (success reports are valuable too!)
+labels: [connector]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The connectors were built from public API docs and need real-world testing. Thank you!
+        **Never paste tokens or guest personal data.** Redact names, ids and message text.
+  - type: dropdown
+    id: pms
+    attributes:
+      label: Which PMS?
+      options: [Hospitable, Hostaway, Guesty]
+    validations:
+      required: true
+  - type: checkboxes
+    id: works
+    attributes:
+      label: What worked?
+      options:
+        - label: Authentication
+        - label: Guest messages appear in the dashboard
+        - label: Messages are matched to the right property (listing_id)
+        - label: Guest and host messages are told apart correctly
+        - label: Sending a reply from the dashboard reaches the guest
+        - label: The reply goes out on the right channel (Airbnb, Booking.com, email…)
+  - type: textarea
+    id: problems
+    attributes:
+      label: What went wrong?
+      description: Error messages from the logs, wrong fields, missing messages… (redacted)
+      render: shell
+  - type: input
+    id: version
+    attributes:
+      label: OpenInn version or commit
